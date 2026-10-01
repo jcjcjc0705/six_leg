@@ -1,0 +1,9 @@
+<launch>
+
+<rosparam file="$(find All_description)/launch/controller.yaml" command="load"/>
+<node args="base_hand_r_position_controller base_hand_l_position_controller base_leg_lf_position_controller base_leg_lr_position_controller base_leg_rr_position_controller base_leg_rf_position_controller hand_r1_r2_position_controller hand_l1_l2_position_controller leg_lf1_lf2_position_controller leg_lr1_lr2_position_controller leg_rr1_rr2_position_controller leg_rf1_rf2_position_controller hand_r2_r3_position_controller hand_l2_l3_position_controller leg_lf2_lf3_position_controller leg_lr2_lr3_position_controller leg_rr2_rr3_position_controller leg_rf2_rf3_position_controller hand_r3_gripper_r1_position_controller gripper_r1_r2_position_controller hand_l3_gripper_l1_position_controller gripper_l1_l2_position_controller leg_lf_wheel_position_controller leg_lr_wheel_position_controller leg_rr_wheel_position_controller leg_rf_wheel_position_controller joint_state_controller " name="controller_spawner" ns="All" output="screen" pkg="controller_manager" respawn="false" type="spawner"/>
+<node name="robot_state_publisher" output="screen" pkg="robot_state_publisher" respawn="false" type="robot_state_publisher">
+  <remap from="/joint_states" to="/All/joint_states"/>
+</node>
+
+</launch>
